@@ -1,0 +1,72 @@
+<div class="oj-hybrid-applayout-page">
+
+    <div class="oj-applayout-fixed-top">
+
+        <header role="banner" class="oj-hybrid-applayout-header">
+            <oj-module style="width: 100%;" config="[[addAccountHeaderConfig]]"></oj-module>
+        </header>
+    </div>
+
+    <div class="oj-applayout-content">
+        <div class="oj-flex oj-flex-item background-white">
+            <div class="oj-sm-12">
+                <span class="oj-typography-title-5 oj-sm-padding-2x-start">Basic Information</span>
+            </div>
+            <div class="oj-sm-12 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="accountName">Name</oj-label>
+                <oj-input-text required validators='[[nameValidator]]' length.max="10" value="{{accountName}}" id="accountName" placeholder="Account name" oj-label-edge="inside"></oj-input-text>
+            </div>
+            <div class="oj-sm-12 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="channel">Channel</oj-label>
+                <oj-select-single id="channel" required label-hint="select channel" data="[[channelListSource]]" value="{{selectedChannel}}">
+                </oj-select-single>
+            </div>
+
+            <div class="oj-sm-12 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="type">Type</oj-label>
+                <oj-select-single id="type" label-hint="select type" required data="[[typeListSource]]" value="{{selectedType}}">
+                </oj-select-single>
+            </div>
+            <div class="oj-sm-12">
+                <span class="oj-typography-body-xl oj-sm-margin-2x-vertical oj-sm-padding-2x-start">Class</span>
+            </div>
+            <div class="oj-sm-11 oj-md-11 oj-lg-11 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-radioset style="width: 100%;" id="radiosetBasicDemoId" label-hint="" label-edge="provided" value="{{currentClass}}">
+
+                    <oj-bind-for-each data="[[classOptions]]">
+                        <template>
+                            <div class="oj-divider-top oj-sm-margin-1x-vertical"></div>
+                            <oj-option value="[[$current.data.value]]">
+                                <oj-bind-text value="[[$current.data.value]]"></oj-bind-text>
+                            </oj-option>
+
+                        </template>
+                    </oj-bind-for-each>
+                    <div class=" oj-divider-bottom oj-sm-margin-1x-vertical"></div>
+                </oj-radioset>
+            </div>
+        </div>
+    </div>
+
+    <div class="oj-applayout-fixed-bottom">
+
+        <footer role="contentinfo " class="oj-web-applayout-footer">
+            <div class="oj-flex oj-sm-12 oj-sm-flex-items-initial oj-sm-justify-content-space-around">
+
+                <div class="oj-flex-item ">
+                    <oj-button class="oj-cancel-btn" chroming='outlined' on-oj-action="[[goBack]]">
+                        Cancel
+                    </oj-button>
+                </div>
+                <div class="oj-flex-item">
+                    <oj-button class="ojet-btn-color oj-color-invert" on-oj-action="[[gotoAddressDetails]]" chroming='outlined'>
+                        Next
+                    </oj-button>
+                </div>
+
+            </div>
+
+        </footer>
+    </div>
+
+</div>

@@ -1,0 +1,99 @@
+.floating-btn {
+    background-color: #28a59d;
+    border-radius: 3rem;
+    color: white !important
+}
+
+.oj-progress-bar-track {
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: grey;
+}
+
+.oj-progress-bar-value {
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #28a59d;
+}
+
+.oj-hybrid-applayout-header {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.background-white {
+    background: #FFF;
+}
+
+
+/* button css */
+
+.oj-button-button {
+    padding: 6px 12px;
+}
+
+.ojet-btn-color {
+    background: #28a59d;
+    border-radius: 5px;
+}
+
+.oj-button {
+    height: unset;
+}
+
+.sendOffScreen {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.flex-container {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.noMargin {
+    margin: 0px;
+}
+
+.noPadding {
+    padding: 0px;
+}
+
+.account-list {
+    background: rgb(206, 234, 250);
+    width: 95%;
+    height: 500px;
+    overflow-x: hidden;
+}
+
+.oj-primary-color {
+    color: var(--primary-color);
+}
+
+.oj-selected {
+    color: var(--primary-color);
+}
+
+.oj-radioset .oj-selected .oj-radiocheckbox-icon {
+    color: #28a59d;
+}
+
+.oj-list-bg-color {
+    background: #edf2f6;
+}
+
+#filterPopup {
+    width: 100%;
+    border-radius: 3%;
+    height: 1000px;
+}
+
+.oj-cancel-btn {
+    width: 10rem;
+}

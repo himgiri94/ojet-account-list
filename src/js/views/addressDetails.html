@@ -1,0 +1,117 @@
+<div class="oj-hybrid-applayout-page">
+
+    <div class="oj-applayout-fixed-top">
+        <header role="banner" class="oj-hybrid-applayout-header">
+            <oj-module style="width: 100%;" config="[[addAccountHeaderConfig]]"></oj-module>
+        </header>
+    </div>
+    <div class="oj-applayout-content bodyContent">
+        <!--------------PRIMARY DATA FORM--------->
+        <div class="oj-flex oj-flex-item background-white">
+            <div class="oj-sm-12">
+                <span class="oj-typography-title-5 oj-sm-padding-2x-start">Primary Address</span>
+            </div>
+            <div class="oj-sm-12 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="addr1">Adress line 1</oj-label>
+                <oj-input-text validators='[[addr1Validator]]' length.max="20" value="{{addr1}}" id="addr1" required placeholder="Address line 1" label-edge="inside"></oj-input-text>
+            </div>
+            <div class="oj-sm-12 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="addr2">Adress line 2</oj-label>
+                <oj-input-text validators='[[addr2Validator]]' length.max="20" value="{{addr2}}" id="addr2" required placeholder="Address line 2" label-edge="inside"></oj-input-text>
+            </div>
+            <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="country">Country</oj-label>
+                <oj-select-single id="country" label-hint="Select item " required data="[[countryListSource]]" value="{{selectedCountry}}">
+                </oj-select-single>
+            </div>
+            <div class="oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="pcode">Postal code</oj-label>
+
+                <oj-input-number id="pcode" value="{{pcode}}" validators='[[pcodeValidator]]' length.max="6">
+                </oj-input-number>
+            </div>
+            <div class="oj-sm-12 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="state">State</oj-label>
+                <oj-select-single id="state" label-hint="Select item " required data="[[stateListSource]]" value="{{selectedState}}">
+                </oj-select-single>
+            </div>
+
+
+            <div class="oj-list-bg-color oj-sm-6 oj-sm-padding-5x-top oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <span class="oj-typography-subtitle-4">GPS coordinates</span>
+            </div>
+
+            <div class="oj-list-bg-color oj-sm-6 oj-md-6 oj-lg-6 oj-sm-padding-5x-top oj-flex-item oj-sm-padding-2x-horizontal" style="text-align: right;">
+                <oj-button on-oj-action="[[getCurrentPos]]" chroming='borderless'> <span class="oj-typography-body-4 oj-primary-color">
+                        get from GPS
+                        <span class="oj-ux-ico-location-pin"></span>&nbsp;&nbsp;
+                    <oj-progress-circle id="gpsLoading" style="width:2rem;height: 2rem;display:none" value="{{loadingVal}}"></oj-progress-circle>
+                    </span>
+                </oj-button>
+            </div>
+
+
+            <!---------------lat and long gps-------------->
+            <div class="oj-list-bg-color oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="lat">Latitude</oj-label>
+
+                <oj-input-text id="lat" value="{{lat}}" required length.max="6"></oj-input-text>
+            </div>
+
+            <div class="oj-list-bg-color oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label>&nbsp;</oj-label>
+                <oj-select-single id="lat" data="[[latDirListSource]]" value="{{selectedLatitudeDir}}">
+                </oj-select-single>
+            </div>
+            <div class="oj-sm-padding-5x-bottom oj-list-bg-color oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="lang">Langitude</oj-label>
+
+                <oj-input-text id="lang" value="{{lang}}" length.max="6" required></oj-input-text>
+            </div>
+
+            <div class="oj-list-bg-color oj-sm-6 oj-md-6 oj-lg-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label>&nbsp;</oj-label>
+                <oj-select-single id="lat" data="[[langDirListSource]]" value="{{selectedLongitudeDir}}">
+                </oj-select-single>
+            </div>
+            <span class="oj-typography-subtitle-4 oj-sm-padding-2x-start oj-sm-margin-5x-top oj-sm-margin-5x-bottom">Address type</span>
+            <div class="oj-sm-12 oj-md-12 oj-lg-12 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-radioset style="width: 100%;" id="radiosetBasicDemoId" label-hint="" label-edge="provided" value="{{currentAddrType}}">
+
+                    <oj-bind-for-each data="[[addrOptions]]">
+                        <template>
+                            <div class="oj-divider-top oj-sm-margin-1x-vertical"></div>
+                            <oj-option value="[[$current.data.value]]">
+                                <oj-bind-text value="[[$current.data.value]]"></oj-bind-text>
+                            </oj-option>
+                        </template>
+                    </oj-bind-for-each>
+                    <div class="oj-divider-bottom oj-sm-margin-1x-vertical"></div>
+                </oj-radioset>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="oj-applayout-fixed-bottom">
+
+        <footer role="contentinfo " class="oj-web-applayout-footer">
+            <div class="oj-flex oj-sm-12 oj-sm-flex-items-initial oj-sm-justify-content-space-around">
+
+                <div class="oj-flex-item ">
+                    <oj-button class="oj-cancel-btn" chroming='outlined' on-oj-action="[[goBack]]">
+                        Back
+                    </oj-button>
+                </div>
+                <div class="oj-flex-item">
+                    <oj-button class="ojet-btn-color oj-color-invert" on-oj-action="[[gotoContactDetails]]" chroming='outlined'>
+                        Next
+                    </oj-button>
+                </div>
+
+            </div>
+
+        </footer>
+    </div>
+</div>

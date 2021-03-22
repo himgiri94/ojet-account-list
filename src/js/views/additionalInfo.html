@@ -1,0 +1,51 @@
+<div class="oj-hybrid-applayout-page">
+
+    <div class="oj-applayout-fixed-top">
+        <header role="banner" class="oj-hybrid-applayout-header">
+            <oj-module style="width: 100%;" config="[[addAccountHeaderConfig]]"></oj-module>
+        </header>
+    </div>
+    <div class="bodyContent oj-applayout-content">
+        <div class="oj-flex background-white">
+            <div class="oj-sm-12">
+                <span class="oj-typography-title-5 oj-sm-padding-2x-start">Additional Information</span>
+            </div>
+            <div class="oj-sm-12 oj-md-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="segment">Trade segment</oj-label>
+                <oj-select-single id="segment" label-hint="select item" required data="[[segmentSource]]" value="{{selectedSegment}}">
+                </oj-select-single>
+            </div>
+
+            <div class="oj-sm-12 oj-md-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="pSegment">Primary consumer segment</oj-label>
+                <oj-select-single id="pSegment" label-hint="select item" required data="[[pSegmentSource]]" value="{{selectedpSegment}}">
+                </oj-select-single>
+            </div>
+
+            <div class="oj-sm-12 oj-md-6 oj-flex-item oj-sm-padding-2x-horizontal">
+                <oj-label class="oj-typography-bold" for="sSegment">Secondary consumer segment</oj-label>
+                <oj-select-single id="sSegment" label-hint="select item" required data="[[sSegmentSource]]" value="{{selectedsSegment}}">
+                </oj-select-single>
+            </div>
+        </div>
+    </div>
+    <div class="oj-applayout-fixed-bottom">
+        <footer role="contentinfo " class="oj-web-applayout-footer">
+            <div class="oj-web-applayout-max-width">
+                <div class="oj-flex oj-sm-12 oj-sm-flex-items-initial oj-sm-justify-content-space-around">
+
+                    <div class="oj-flex-item ">
+                        <oj-button class="oj-cancel-btn" chroming='outlined' on-oj-action="[[goBack]]">
+                            Back
+                        </oj-button>
+                    </div>
+                    <div class="oj-flex-item">
+                        <oj-button on-oj-action="[[saveAccount]]" chroming='outlined' class="ojet-btn-color oj-color-invert">
+                            Save
+                        </oj-button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

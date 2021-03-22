@@ -1,0 +1,32 @@
+<div role="heading" class="oj-hybrid-applayout-bar-title">
+    <div class="oj-web-applayout-max-width">
+        <!--span slot="startIcon" alt="" class="oj-ux-ico-menu"></span>
+        <h1 class="oj-hybrid-applayout-header-title" >
+            <oj-bind-text value="[[pageTitle]]"></oj-bind-text>
+        </h1-->
+
+        <div class="oj-flex">
+            <div class="oj-sm-2 oj-md-2 oj-lg-2 oj-flex-item oj-sm-padding-2x-horizontal">
+                <h1> <span class="oj-ux-ico-arrow-left oj-ux-icon-size-6x" on-click="[[function(){backHandler(pathName,routerObj)}]]"></span></h1>
+            </div>
+            <div class="oj-sm-align-self-center oj-sm-9 oj-md-9 oj-lg-9 oj-flex-item oj-sm-padding-2x-horizontal" style="text-align: center;">
+                <h6>
+                    <span>
+                        <oj-bind-text value="[[pageTitle]]">
+                        </oj-bind-text>
+                    </span>
+                </h6>
+            </div>
+        </div>
+        <div id="progressBar" class="oj-sm-margin-5x-bottom">
+            <span>Step
+                <oj-bind-text value="[[stage]]">
+
+                </oj-bind-text>
+            </span>/4
+            <oj-progress-bar style="width: 10em;" id="progressBar" value="[[stage*25]]">
+            </oj-progress-bar>
+        </div>
+
+    </div>
+</div>
